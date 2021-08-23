@@ -1,6 +1,12 @@
 function [] = configFigure(figHandle, axisHandle, format)
-%CONFIGFIGURE Summary of this function goes here
-%   Detailed explanation goes here
+%CONFIGFIGURE Config figure for specific scenarioes
+%   figHandle: handle of figure to process
+%   axisHandle: handle of axis to process
+%   format: scenario of the figure to be used in
+%       'IeeeTwoColumn' - two columns figure for IEEE publications
+%       'IeeeOneColumn' - single column figure for IEEE publications
+%       'Presentation'  - figure to be used in a slide
+%       'default'       - merely show figure
     
     if nargin < 3
         format = 'default'; 
@@ -20,7 +26,7 @@ function [] = configFigure(figHandle, axisHandle, format)
             % IEEE suggest fonts: Times New Roman, Helvetica, Cambira and Arial
             axisHandle.FontName = 'Times New Roman';   
             
-            % Font size in figure should be 8-10 pts
+            % Font size in figure should be 8-10 pts. 
             axisHandle.FontSize = 8;        
     
         case 'IeeeOneColumn'
