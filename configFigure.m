@@ -3,14 +3,20 @@ function [] = configFigure(figHandle, axisHandle, format)
 %   figHandle: handle of figure to process
 %   axisHandle: handle of axis to process
 %   format: scenario of the figure to be used in
-%       'IeeeTwoColumn' - two columns figure for IEEE publications
-%       'IeeeOneColumn' - single column figure for IEEE publications
-%       'Presentation'  - figure to be used in a slide
+%       'ieeetwocolumn' - two columns figure for IEEE publications
+%       'ieeeonecolumn' - single column figure for IEEE publications
+%       'presentation'  - figure to be used in a slide
 %       'default'       - merely show figure
-    
+
+%   Created by Liu Shuduo. 
+%   Signal Space and Information System Lab, ISEE, ZJU
+%   Email:      sliu35@zju.edu.cn
+
     if nargin < 3
         format = 'default'; 
     end
+    
+    format = lower(format);
     
     figHandle.Units = 'inches';
     
@@ -19,7 +25,7 @@ function [] = configFigure(figHandle, axisHandle, format)
     
     switch format
         
-        case 'IeeeTwoColumn'
+        case 'ieeetwocolumn'
             figHandle.Position(3) = 7.16;   % width of two columns figure
             lengthWidthRatio = 3 / 5;       
                 
@@ -29,13 +35,13 @@ function [] = configFigure(figHandle, axisHandle, format)
             % Font size in figure should be 8-10 pts. 
             axisHandle.FontSize = 8;        
     
-        case 'IeeeOneColumn'
+        case 'ieeeonecolumn'
             figHandle.Position(3) = 3.5;    % width of one column figure 
             lengthWidthRatio = 3 / 4;
             axisHandle.FontName = 'Times New Roman';   
             axisHandle.FontSize = 8; 
             
-        case 'Presentation'
+        case 'presentation'
             % Powerpoint default 16:9 slide has size 13.33 * 7.5 inches.
             figHandle.Position(3) = 9;      % figure use in powerpoint
             lengthWidthRatio = 10 / 16;
